@@ -1,9 +1,11 @@
 package com.mycompany.lab4_programdevelopment;
 
 import javafx.application.Application;
+import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
@@ -61,6 +63,15 @@ public class App extends Application {
         Label taxiFeesLabel = new Label("Enter Amount of taxi charges, if any:");
         Label registrationFeesLabel = new Label("Enter Conference or seminar registration fees, if any:");
         Label lodgingChargesLabel = new Label("Enter Lodging charges, per night:");
+        
+        GridPane gridPane = new GridPane();
+        gridPane.setPadding(new Insets(10));
+        gridPane.setVgap(10);
+        gridPane.setHgap(10);
+        
+        Scene scene = new Scene(gridPane, 640, 480);
+        stage.setScene(scene);
+        stage.show();
     }
 
     public static void main(String[] args) {
