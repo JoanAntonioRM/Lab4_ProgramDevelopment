@@ -72,7 +72,12 @@ public class App extends Application {
                     excessExpenses = 0.0;
                 }
                 
-                resultLabel.setText(String.format("Total Reimbursement: $%.2d%nExcess Expenses: $%.2f%nAmount Saved: $%.2f", totalReimburse, excessExpenses, amountSaved));
+                if(totalExpenses == 0){
+                    totalReimburse = 0.0;
+                    amountSaved = 0.0;
+                }
+                
+                resultLabel.setText(String.format("Total Reimbursement: $%.2f%nExcess Expenses: $%.2f%nAmount Saved: $%.2f", totalReimburse, excessExpenses, amountSaved));
             } catch (NumberFormatException ex) {
                 resultLabel.setText("Please enter valid numbers in all fields.");
             }
@@ -116,6 +121,9 @@ public class App extends Application {
         buttonBox.getChildren().addAll(btnCalculate);
         
         grid.add(buttonBox, 0, 8);
+        
+        grid.add(resultLabel, 0, 9);
+        GridPane.setColumnSpan(resultLabel, 2);
         
         root.setCenter(grid);
         
