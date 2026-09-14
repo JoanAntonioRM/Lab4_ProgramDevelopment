@@ -2,10 +2,14 @@ package com.mycompany.lab4_programdevelopment;
 
 import javafx.application.Application;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
@@ -63,13 +67,51 @@ public class App extends Application {
         Label taxiFeesLabel = new Label("Enter Amount of taxi charges, if any:");
         Label registrationFeesLabel = new Label("Enter Conference or seminar registration fees, if any:");
         Label lodgingChargesLabel = new Label("Enter Lodging charges, per night:");
+        Button btnCalculate = new Button("Calculate");
         
-        GridPane gridPane = new GridPane();
-        gridPane.setPadding(new Insets(10));
-        gridPane.setVgap(10);
-        gridPane.setHgap(10);
+        BorderPane root = new BorderPane();
+        root.setPadding(new Insets(20));
         
-        Scene scene = new Scene(gridPane, 640, 480);
+        GridPane grid = new GridPane();
+        grid.setPadding(new Insets(10));
+        grid.setVgap(10);
+        grid.setHgap(10);
+        grid.setAlignment(Pos.CENTER);
+        
+        grid.add(daysLabel, 0, 0);
+        grid.add(numDays, 1, 0);
+        
+        grid.add(airFareLabel, 0, 1);
+        grid.add(amountAirfare, 1, 1);
+        
+        grid.add(carFeesLabel, 0, 2);
+        grid.add(amountCarFees, 1, 2);
+        
+        grid.add(milesDrivenLabel, 0, 3);
+        grid.add(numMilesDriven, 1, 3);
+        
+        grid.add(parkingFeesLabel, 0, 4);
+        grid.add(amountParkingFees, 1, 4);
+        
+        grid.add(taxiFeesLabel, 0, 5);
+        grid.add(amountTaxiFees, 1, 5);
+        
+        grid.add(registrationFeesLabel, 0, 6);
+        grid.add(amountRegistrationFees, 1, 6);
+        
+        grid.add(lodgingChargesLabel, 0, 7);
+        grid.add(amountLodgingCharges, 1, 7);
+        
+        HBox buttonBox = new HBox(10);
+        buttonBox.setAlignment(Pos.CENTER);
+        buttonBox.getChildren().addAll(btnCalculate);
+        
+        grid.add(buttonBox, 0, 8);
+        
+        root.setCenter(grid);
+        
+        Scene scene = new Scene(root, 640, 480);
+        stage.setTitle("Business Expense Calculator");
         stage.setScene(scene);
         stage.show();
     }
