@@ -26,6 +26,8 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) {
+        
+        //TEXTFIELDS
         TextField numDays = new TextField();
         TextField amountAirfare = new TextField();
         TextField amountCarFees = new TextField();
@@ -35,6 +37,7 @@ public class App extends Application {
         TextField amountRegistrationFees = new TextField();
         TextField amountLodgingCharges = new TextField();
         
+        //LABELS
         Label daysLabel = new Label("Enter Number of days on the trip:");
         Label airFareLabel = new Label("Enter Amount of airfare, if any:");
         Label carFeesLabel = new Label("Enter Amount of car rental fees, if any:");
@@ -46,8 +49,10 @@ public class App extends Application {
         Button btnCalculate = new Button("Calculate");
         Label resultLabel = new Label();
         
+        //BUTTON CALCULATE EVENT HANDLER
         btnCalculate.setOnAction(e -> {
             try {
+                //PARSE NUMBERS
                 Double days = Double.valueOf(numDays.getText());
                 Double airfare = Double.valueOf(amountAirfare.getText());
                 Double carFees = Double.valueOf(amountCarFees.getText());
@@ -57,6 +62,7 @@ public class App extends Application {
                 Double registrationFees = Double.valueOf(amountRegistrationFees.getText());
                 Double lodgingCharges = Double.valueOf(amountLodgingCharges.getText());
                 
+                //CALCULATE REIMBURSEMENT
                 Double parkingFeesReimburse = (parkingFees < PARKING_REIMBURSE)? PARKING_REIMBURSE - parkingFees : PARKING_REIMBURSE;
                 Double taxiFeesReimburse = (taxiFees < TAXI_REIMBURSE)? TAXI_REIMBURSE - taxiFees : TAXI_REIMBURSE;
                 Double lodgingChargesReimburse = (lodgingCharges < LODGING_REIMBURSE)? LODGING_REIMBURSE - lodgingCharges : LODGING_REIMBURSE;
@@ -86,6 +92,7 @@ public class App extends Application {
         BorderPane root = new BorderPane();
         root.setPadding(new Insets(20));
         
+        //CONFIGURE PANE
         GridPane grid = new GridPane();
         grid.setPadding(new Insets(10));
         grid.setVgap(10);
@@ -127,6 +134,7 @@ public class App extends Application {
         
         root.setCenter(grid);
         
+        //SET STAGE
         Scene scene = new Scene(root, 640, 480);
         stage.setTitle("Business Expense Calculator");
         stage.setScene(scene);
