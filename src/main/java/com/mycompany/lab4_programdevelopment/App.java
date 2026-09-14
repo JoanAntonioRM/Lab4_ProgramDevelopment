@@ -21,8 +21,17 @@ public class App extends Application {
         TextField numMilesDriven = new TextField();
         TextField amountParkingFees = new TextField();
         TextField amountTaxiFees = new TextField();
-        TextField registrationFees = new TextField();
-        TextField lodgingCharges = new TextField();
+        TextField amountRegistrationFees = new TextField();
+        TextField amountLodgingCharges = new TextField();
+        
+        Double days = Double.valueOf(numDays.getText());
+        Double airfare = Double.valueOf(amountAirfare.getText());
+        Double carFees = Double.valueOf(amountCarFees.getText());
+        Double milesDriven = Double.valueOf(numMilesDriven.getText());
+        Double parkingFees = Double.valueOf(amountParkingFees.getText());
+        Double taxiFees = Double.valueOf(amountTaxiFees.getText());
+        Double registrationFees = Double.valueOf(amountRegistrationFees.getText());
+        Double lodgingCharges = Double.valueOf(amountLodgingCharges.getText());
     }
 
     public static void main(String[] args) {
