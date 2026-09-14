@@ -46,6 +46,21 @@ public class App extends Application {
         Double totalExpenses = airfare + carFees + parkingFees + taxiFees + registrationFees + (lodgingCharges * days);
         
         Double excessExpenses = totalExpenses - totalReimburse;
+        
+        Double amountSaved = 0.0;
+        if(excessExpenses < 0){
+            amountSaved = excessExpenses * -1;
+            excessExpenses = 0.0;
+        }
+        
+        Label daysLabel = new Label("Enter Number of days on the trip:");
+        Label airFareLabel = new Label("Enter Amount of airfare, if any:");
+        Label carFeesLabel = new Label("Enter Amount of car rental fees, if any:");
+        Label milesDrivenLabel = new Label("Enter Number of miles driven, if a private vehicle was used:");
+        Label parkingFeesLabel = new Label("Enter Amount of parking fees, if any:");
+        Label taxiFeesLabel = new Label("Enter Amount of taxi charges, if any:");
+        Label registrationFeesLabel = new Label("Enter Conference or seminar registration fees, if any:");
+        Label lodgingChargesLabel = new Label("Enter Lodging charges, per night:");
     }
 
     public static void main(String[] args) {
