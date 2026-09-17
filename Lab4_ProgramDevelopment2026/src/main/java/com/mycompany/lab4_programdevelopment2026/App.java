@@ -134,8 +134,11 @@ public class App extends Application {
         
         root.setCenter(grid);
         
+        String cssPath = getClass().getResource("/styles.css").toExternalForm();
+        
         //SET STAGE
-        Scene scene = new Scene(root, 640, 480);
+        Scene scene = new Scene(root, 920, 640);
+        scene.getStylesheets().add(cssPath);
         stage.setTitle("Business Expense Calculator");
         stage.setScene(scene);
         stage.show();
